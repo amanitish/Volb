@@ -9,9 +9,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - uses: gradle/actions/setup-gradle@v3
-      - run: gradle assembleDebug
-      - uses: actions/upload-artifact@v4
+      
+      # This step installs a "ready-to-go" gradle
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build with Gradle
+        run: gradle assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
         with:
-          name: MyLoggerAPK
+          name: VolumeLoggerAPK
           path: app/build/outputs/apk/debug/app-debug.apk
