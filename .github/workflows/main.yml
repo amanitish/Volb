@@ -9,10 +9,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      
-      # This step installs a "ready-to-go" gradle
+
+      # FORCE GRADLE VERSION 8.2 HERE
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.2' 
 
       - name: Build with Gradle
         run: gradle assembleDebug
