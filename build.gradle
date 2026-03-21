@@ -1,10 +1,28 @@
-buildscript {
-    repositories { google(); mavenCentral() }
-    dependencies { 
-        classpath 'com.android.tools.build:gradle:8.1.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10"
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.volumelogger'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.volumelogger"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+    
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
     }
 }
-allprojects {
-    repositories { google(); mavenCentral() }
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.10.1'
 }
