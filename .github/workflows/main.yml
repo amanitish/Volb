@@ -19,12 +19,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # This step installs Gradle so we don't need the 'gradlew' file
+    # This forces GitHub to use Version 8.2 instead of 9.4
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: '8.2'
 
     - name: Build with Gradle
-      # We use 'gradle' instead of './gradlew'
       run: gradle assembleDebug
 
     - name: Upload APK
