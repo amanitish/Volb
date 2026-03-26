@@ -13,9 +13,11 @@ android {
         targetSdk 34
         versionCode 1
         versionName "1.0"
+        
+        // This line changes the generated APK file name to Aman.apk
+        setProperty("archivesBaseName", "Aman")
     }
 
-    // THIS SECTION IS NEW AND WILL FIX THE ERROR
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
